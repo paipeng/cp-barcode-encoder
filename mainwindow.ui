@@ -17,8 +17,8 @@
    <widget class="QLabel" name="barcodeLabel">
     <property name="geometry">
      <rect>
-      <x>500</x>
-      <y>50</y>
+      <x>524</x>
+      <y>280</y>
       <width>255</width>
       <height>255</height>
      </rect>
@@ -30,14 +30,175 @@
    <widget class="QPushButton" name="encodeButton">
     <property name="geometry">
      <rect>
-      <x>570</x>
-      <y>340</y>
+      <x>650</x>
+      <y>250</y>
       <width>113</width>
       <height>32</height>
      </rect>
     </property>
     <property name="text">
      <string>Encode</string>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>10</y>
+      <width>321</width>
+      <height>241</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="qrcodeTab">
+     <attribute name="title">
+      <string>QRCode</string>
+     </attribute>
+     <widget class="QComboBox" name="qrcodeVersionComboBox">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>20</y>
+        <width>141</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="qrcodeEccComboBox">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>60</y>
+        <width>141</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>30</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>版本</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>70</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>纠错率</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>110</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>掩模图形</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="qrcodeMaskPatternComboBox">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>100</y>
+        <width>141</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_4">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>150</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>边距</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="qrcodeMarginLineEdit">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>150</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>190</y>
+        <width>60</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>编码</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="qrcodeCharacterSetComboBox">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>180</y>
+        <width>141</width>
+        <height>32</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="datamatrixTab">
+     <attribute name="title">
+      <string>Datamatrix</string>
+     </attribute>
+    </widget>
+   </widget>
+   <widget class="QTextEdit" name="inputTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>421</width>
+      <height>531</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="importButton">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>250</y>
+      <width>113</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Import</string>
     </property>
    </widget>
   </widget>

@@ -58,3 +58,49 @@ QImage CPBarcode::encode(const QString& data) {
     }
     return barcode;
 }
+
+QStringList CPBarcode::getCharacterSets() {
+    int size = (int)CharacterSet::CharsetCount;
+
+    QStringList characterSets;
+
+    characterSets.append("Unknown");
+    characterSets.append("ASCII");
+    characterSets.append("ISO8859_1");
+    characterSets.append("ISO8859_2");
+    characterSets.append("ISO8859_3");
+    characterSets.append("ISO8859_4");
+    characterSets.append("ISO8859_5");
+    characterSets.append("ISO8859_6");
+    characterSets.append("ISO8859_7");
+    characterSets.append("ISO8859_8");
+    characterSets.append("ISO8859_9");
+    characterSets.append("ISO8859_10");
+    characterSets.append("ISO8859_11");
+    characterSets.append("ISO8859_13");
+    characterSets.append("ISO8859_14");
+    characterSets.append("ISO8859_15");
+    characterSets.append("ISO8859_16");
+
+    characterSets.append("Cp437");
+    characterSets.append("Cp1250");
+    characterSets.append("Cp1251");
+    characterSets.append("Cp1252");
+    characterSets.append("Cp1256");
+
+    characterSets.append("Shift_JIS");
+    characterSets.append("Big5");
+    characterSets.append("GB2312");
+    characterSets.append("GB18030");
+    characterSets.append("EUC_JP");
+    characterSets.append("EUC_KR");
+    characterSets.append("UnicodeBig");
+    characterSets.append("UTF8");
+    characterSets.append("BINARY");
+
+    if (characterSets.size() != size) {
+        characterSets.clear();
+    }
+
+    return characterSets;
+}

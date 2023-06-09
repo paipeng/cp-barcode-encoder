@@ -20,6 +20,10 @@ private slots:
     void encodeClicked();
 
 private:
+    void initTab();
+    void initQRCodeTab();
+
+private:
     Ui::MainWindow *ui;
     CPBarcode cpBarcode;
 };

@@ -8,6 +8,7 @@ class CPBarcode
 public:
     CPBarcode();
     QImage encode(const QString& data);
+    QStringList getCharacterSets();
 };
 
 #endif // CPBARCODE_H
