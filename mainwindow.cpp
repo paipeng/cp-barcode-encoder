@@ -6,6 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    QImage barcode = cpBarcode.encode("test");
+    barcode.save("/Users/paipeng/Downloads/barcode.bmp", "bmp");
 }
 
 MainWindow::~MainWindow()
