@@ -32,6 +32,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 
 INCLUDEPATH += $$PWD/ZXing/
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/libs/x64/ -lZXing
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/libs/x64/ -lZXing
-else:unix: LIBS += -L$$PWD/libs/x64/ -lZXing
+INCLUDEPATH += $$PWD/cp-image-util/
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/libs/x64/ -lZXing -lcp-image-util
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/libs/x64/ -lZXing -lcp-image-util
+else:unix: LIBS += -L$$PWD/libs/x64/ -lZXing -lcp-image-util

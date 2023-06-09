@@ -19,11 +19,11 @@ CPBarcode::CPBarcode()
 QImage CPBarcode::encode(const QString& data) {
     QImage barcode;
     try {
-        int width = 100, height = 100;
+        int width = 400, height = 400;
         BarcodeFormat format = BarcodeFormat::QRCode;
         int margin = 0;
         CharacterSet encoding = CharacterSet::Unknown;
-        int eccLevel = -1;
+        int eccLevel = 8;
 
         auto writer = MultiFormatWriter(format).setMargin(margin).setEncoding(encoding).setEccLevel(eccLevel);
 

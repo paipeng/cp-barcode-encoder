@@ -16,6 +16,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void encodeClicked();
+
 private:
     Ui::MainWindow *ui;
     CPBarcode cpBarcode;
