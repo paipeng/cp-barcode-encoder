@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "cpimageutil.h"
 #include <QDebug>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -16,6 +17,24 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::importClicked() {
+    QString file = QFileDialog::getOpenFileName(this,
+                tr("select_csv_file"), QDir::home().path(), "文件格式 (*.txt *.csv)");
+        qDebug() << "selected file: " << file;
+
+    if (file.length() > 0) {
+        QFile inputFile(file);
+        if (inputFile.open(QIODevice::ReadOnly)) {
+           QTextStream in(&inputFile);
+           while (!in.atEnd()) {
+              QString line = in.readLine();
+              qDebug() << line;
+              ui->inputTextEdit->append(line);
+           }
+           inputFile.close();
+        }
+    }
+}
 void MainWindow::encodeClicked() {
     QString input = ui->inputTextEdit->toPlainText();
     qDebug() << "input: " << input;
@@ -27,12 +46,23 @@ void MainWindow::encodeClicked() {
     int maskPattern = ui->qrcodeMaskPatternComboBox->currentIndex();
     int sizeFactor = ui->qrcodeSizeFactorLineEdit->text().toInt();
 
-    QImage barcode = cpBarcode.encodeQrcode(input, encoding, margin, ecc, version, maskPattern);
 
-    barcode = CPImageUtil::resizeQImage(barcode, QSize(barcode.width()*sizeFactor, barcode.height()*sizeFactor));
-    ui->resultLabel->setText(QString::asprintf("size: %d-%d", barcode.width(), barcode.height()));
-    barcode.save("/Users/paipeng/Downloads/barcode.bmp", "bmp");
-    ui->barcodeLabel->setPixmap(QPixmap::fromImage(CPImageUtil::resizeQImage(barcode, ui->barcodeLabel->size())));
+    // QString.split(QRegExp("\n|\r\n|\r"));
+    QStringList inputLines = input.split(QRegExp("\n|\r\n|\r"));
+
+    int i = 0;
+    for ( const auto& line : inputLines) {
+        QImage barcode = cpBarcode.encodeQrcode(line, encoding, margin, ecc, version, maskPattern);
+
+        barcode = CPImageUtil::resizeQImage(barcode, QSize(barcode.width()*sizeFactor, barcode.height()*sizeFactor));
+        ui->resultLabel->setText(QString::asprintf("size: %d-%d", barcode.width(), barcode.height()));
+        barcode.save(QString::asprintf("/Users/paipeng/Downloads/barcode_%05d.bmp", i), "bmp");
+
+        if (inputLines.last() == line) {
+            ui->barcodeLabel->setPixmap(QPixmap::fromImage(CPImageUtil::resizeQImage(barcode, ui->barcodeLabel->size())));
+        }
+        i++;
+    }
 
 
 }

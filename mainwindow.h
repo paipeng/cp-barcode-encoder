@@ -18,6 +18,7 @@ public:
 
 private slots:
     void encodeClicked();
+    void importClicked();
 
 private:
     void initTab();

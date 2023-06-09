@@ -268,8 +268,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>importButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>importClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>536</x>
+     <y>339</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>encodeClicked()</slot>
+  <slot>importClicked()</slot>
  </slots>
 </ui>
