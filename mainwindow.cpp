@@ -25,10 +25,16 @@ void MainWindow::encodeClicked() {
     int ecc = ui->qrcodeEccComboBox->currentIndex();
     int version = ui->qrcodeVersionComboBox->currentIndex();
     int maskPattern = ui->qrcodeMaskPatternComboBox->currentIndex();
+    int sizeFactor = ui->qrcodeSizeFactorLineEdit->text().toInt();
 
     QImage barcode = cpBarcode.encodeQrcode(input, encoding, margin, ecc, version, maskPattern);
+
+    barcode = CPImageUtil::resizeQImage(barcode, QSize(barcode.width()*sizeFactor, barcode.height()*sizeFactor));
+    ui->resultLabel->setText(QString::asprintf("size: %d-%d", barcode.width(), barcode.height()));
     barcode.save("/Users/paipeng/Downloads/barcode.bmp", "bmp");
     ui->barcodeLabel->setPixmap(QPixmap::fromImage(CPImageUtil::resizeQImage(barcode, ui->barcodeLabel->size())));
+
+
 }
 
 void MainWindow::initTab() {
@@ -76,4 +82,7 @@ void MainWindow::initQRCodeTab() {
     for ( const auto& i : characterSets  ) {
         ui->qrcodeCharacterSetComboBox->addItem(i);
     }
+
+    ui->qrcodeSizeFactorLineEdit->setValidator(new QIntValidator(ui->qrcodeSizeFactorLineEdit));
+    ui->qrcodeSizeFactorLineEdit->setText("1");
 }
