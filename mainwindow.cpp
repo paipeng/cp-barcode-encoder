@@ -19,7 +19,14 @@ MainWindow::~MainWindow()
 void MainWindow::encodeClicked() {
     QString input = ui->inputTextEdit->toPlainText();
     qDebug() << "input: " << input;
-    QImage barcode = cpBarcode.encode(input);
+
+    int encoding= ui->qrcodeCharacterSetComboBox->currentIndex();
+    int margin = ui->qrcodeMarginLineEdit->text().toInt();
+    int ecc = ui->qrcodeEccComboBox->currentIndex();
+    int version = ui->qrcodeVersionComboBox->currentIndex();
+    int maskPattern = ui->qrcodeMaskPatternComboBox->currentIndex();
+
+    QImage barcode = cpBarcode.encodeQrcode(input, encoding, margin, ecc, version, maskPattern);
     barcode.save("/Users/paipeng/Downloads/barcode.bmp", "bmp");
     ui->barcodeLabel->setPixmap(QPixmap::fromImage(CPImageUtil::resizeQImage(barcode, ui->barcodeLabel->size())));
 }
@@ -69,10 +76,4 @@ void MainWindow::initQRCodeTab() {
     for ( const auto& i : characterSets  ) {
         ui->qrcodeCharacterSetComboBox->addItem(i);
     }
-
-    ui->qrcodeEccComboBox->addItem("Low (7%)");
-    ui->qrcodeEccComboBox->addItem("Medium (15%)");
-    ui->qrcodeEccComboBox->addItem("Quality (25%)");
-    ui->qrcodeEccComboBox->addItem("High (30%)");
-
 }

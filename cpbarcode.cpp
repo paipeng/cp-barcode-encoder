@@ -20,21 +20,23 @@ CPBarcode::CPBarcode()
 }
 
 
-QImage CPBarcode::encode(const QString& data) {
+QImage CPBarcode::encodeQrcode(const QString& data, int encoding, int margin, int ecc, int version, int maskPattern) {
     QImage barcode;
     try {
+        qDebug() << "encodeQrcode: " << data << " encoding:" << encoding << " margin: " << margin << " ecc: " << ecc << " version: " << version << " maskPattern: " << maskPattern;
         int width = 0, height = 0;
-        BarcodeFormat format = BarcodeFormat::QRCode;
-        int margin = 0;
-        CharacterSet encoding = CharacterSet::GB18030;
-        int eccLevel = 8;
-
-        QRCode::ErrorCorrectionLevel ecc = QRCode::ErrorCorrectionLevel::High;
-
+        //BarcodeFormat format = BarcodeFormat::QRCode;
+        //CharacterSet encoding = CharacterSet::GB18030;
+        //QRCode::ErrorCorrectionLevel ecc = QRCode::ErrorCorrectionLevel::High;
         //auto writer = MultiFormatWriter(format).setMargin(margin).setEncoding(encoding).setEccLevel(eccLevel);
+        auto writer = QRCode::Writer().setEncoding((CharacterSet)encoding).setMargin(margin).setErrorCorrectionLevel((ErrorCorrectionLevel)ecc);
 
-        auto writer = QRCode::Writer().setEncoding(encoding).setMargin(margin).setErrorCorrectionLevel(ecc).setVersion(10);
-
+        if (version != 0) {
+            writer.setVersion(version);
+        }
+        if (maskPattern < 8) {
+            writer.setMaskPattern(maskPattern);
+        }
 
         BitMatrix matrix = writer.encode(data.toStdWString(), width, height);
         //auto bitmap = ToMatrix<uint8_t>(matrix);
