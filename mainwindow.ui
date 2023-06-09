@@ -30,8 +30,8 @@
    <widget class="QPushButton" name="encodeButton">
     <property name="geometry">
      <rect>
-      <x>650</x>
-      <y>300</y>
+      <x>670</x>
+      <y>390</y>
       <width>113</width>
       <height>32</height>
      </rect>
@@ -44,9 +44,9 @@
     <property name="geometry">
      <rect>
       <x>460</x>
-      <y>10</y>
+      <y>20</y>
       <width>321</width>
-      <height>281</height>
+      <height>191</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -60,7 +60,7 @@
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>20</y>
+        <y>10</y>
         <width>141</width>
         <height>32</height>
        </rect>
@@ -70,7 +70,7 @@
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>60</y>
+        <y>50</y>
         <width>141</width>
         <height>32</height>
        </rect>
@@ -79,10 +79,10 @@
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>30</y>
+        <x>20</x>
+        <y>10</y>
         <width>60</width>
-        <height>16</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
@@ -92,10 +92,10 @@
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>70</y>
+        <x>20</x>
+        <y>50</y>
         <width>60</width>
-        <height>16</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
@@ -105,10 +105,10 @@
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>110</y>
+        <x>20</x>
+        <y>90</y>
         <width>60</width>
-        <height>16</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
@@ -119,42 +119,19 @@
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>100</y>
+        <y>90</y>
         <width>141</width>
         <height>32</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_4">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>150</y>
-        <width>60</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>边距</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="qrcodeMarginLineEdit">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>150</y>
-        <width>121</width>
-        <height>21</height>
        </rect>
       </property>
      </widget>
      <widget class="QLabel" name="label_5">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>190</y>
+        <x>20</x>
+        <y>130</y>
         <width>60</width>
-        <height>16</height>
+        <height>31</height>
        </rect>
       </property>
       <property name="text">
@@ -165,32 +142,9 @@
       <property name="geometry">
        <rect>
         <x>80</x>
-        <y>180</y>
+        <y>130</y>
         <width>141</width>
         <height>32</height>
-       </rect>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_6">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>220</y>
-        <width>60</width>
-        <height>16</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>图片倍率</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="qrcodeSizeFactorLineEdit">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>220</y>
-        <width>121</width>
-        <height>21</height>
        </rect>
       </property>
      </widget>
@@ -205,17 +159,17 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>0</y>
       <width>421</width>
-      <height>531</height>
+      <height>541</height>
      </rect>
     </property>
    </widget>
    <widget class="QPushButton" name="importButton">
     <property name="geometry">
      <rect>
-      <x>480</x>
-      <y>300</y>
+      <x>670</x>
+      <y>350</y>
       <width>113</width>
       <height>32</height>
      </rect>
@@ -228,14 +182,73 @@
     <property name="geometry">
      <rect>
       <x>679</x>
-      <y>340</y>
+      <y>450</y>
       <width>101</width>
-      <height>191</height>
+      <height>81</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>220</y>
+      <width>321</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>设置</string>
+    </property>
+    <widget class="QLineEdit" name="qrcodeSizeFactorLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>70</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="qrcodeMarginLineEdit">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>40</y>
+       <width>121</width>
+       <height>21</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>60</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>边距</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>70</y>
+       <width>60</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>图片倍率</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
